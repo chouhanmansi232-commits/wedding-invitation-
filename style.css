@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700;800&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* Base Styles & Custom Variables */
+:root {
+  --gold-primary: #d4af37;
+  --gold-light: #fbeea8;
+  --gold-dark: #997819;
+  --royal-crimson: #630c1f;
+  --deep-wine: #2a0813;
+  --ivory-bg: #fdfaf6;
+  --card-bg: rgba(255, 255, 255, 0.85);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #0d0407;
+  color: #332025;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Typography Utility Classes */
+.font-script {
+  font-family: 'Great Vibes', cursive;
+}
+
+.font-alex {
+  font-family: 'Alex Brush', cursive;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-cinzel-dec {
+  font-family: 'Cinzel Decorative', serif;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Luxury Gold Foil & Shimmer Effects */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #fbeea8 0%, #d4af37 50%, #aa7c11 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-text-subtle {
+  background: linear-gradient(135deg, #d4af37 0%, #f4d068 50%, #aa7c11 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #cf9f38 0%,
+    #fff5cc 25%,
+    #e6b847 50%,
+    #fff5cc 75%,
+    #cf9f38 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Luxury Borders & Frames */
+.gold-border-ornate {
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.15), inset 0 0 15px rgba(212, 175, 55, 0.08);
+}
+
+.gold-border-double {
+  border: 3px double rgba(212, 175, 55, 0.6);
+}
+
+.royal-glass {
+  background: rgba(28, 11, 18, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.royal-glass-light {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Floating Petals Canvas */
+#petals-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 40;
+}
+
+/* Envelope Entry Animation */
+#envelope-modal {
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wax-seal {
+  background: radial-gradient(circle at 30% 30%, #a81c2f, #6d0a17, #3e040c);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45), 0 0 12px rgba(212, 175, 55, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wax-seal:hover {
+  transform: scale(1.06) rotate(3deg);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55), 0 0 20px rgba(212, 175, 55, 0.7);
+}
+
+/* Subtle Floating Animations */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+@keyframes pulseSlow {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 3s ease-in-out infinite;
+}
+
+/* Mandap / Arch corner flourishes */
+.corner-flourish {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  pointer-events: none;
+}
+
+.corner-top-left {
+  top: 12px;
+  left: 12px;
+}
+
+.corner-top-right {
+  top: 12px;
+  right: 12px;
+  transform: rotate(90deg);
+}
+
+.corner-bottom-right {
+  bottom: 12px;
+  right: 12px;
+  transform: rotate(180deg);
+}
+
+.corner-bottom-left {
+  bottom: 12px;
+  left: 12px;
+  transform: rotate(270deg);
+}
+
+/* Swiper custom styling */
+.swiper-slide {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #d4af37 !important;
+  width: 24px !important;
+  border-radius: 9999px !important;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  color: #d4af37 !important;
+  background: rgba(19, 8, 14, 0.75);
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+  font-size: 18px !important;
+  font-weight: bold;
+}
+
+/* Audio Player Floating Button */
+.audio-btn {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.35);
+}
+
+.audio-btn.playing {
+  animation: spinSlow 12s linear infinite;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0407;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #471a25;
+  border-radius: 4px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6d2334;
+}
+
+/* Responsive Image Hover Zoom */
+.gallery-card {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.gallery-card img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.05);
+}
+
+/* Timeline Branching */
+.timeline-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  border: 1px dashed rgba(212, 175, 55, 0.5);
+  animation: spinSlow 15s linear infinite;
+}
