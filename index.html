@@ -3,822 +3,359 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Himanshi & Anshul | Royal Wedding Invitation • 24 Nov 2026</title>
-  <meta name="description" content="Together with their families, Himanshi and Anshul joyfully invite you to celebrate their wedding ceremony on 24 November 2026.">
+  
+  <!-- Primary Meta Tags -->
+  <title>Anshul &amp; Himanshi — The Wedding • 24 November 2026</title>
+  <meta name="title" content="Anshul & Himanshi — The Wedding • 24 November 2026">
+  <meta name="description" content="With the blessings of our families, we invite you to celebrate the beginning of our forever. 24 November 2026 • Jaipur, Rajasthan.">
+  <meta name="theme-color" content="#FAF7F2">
 
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            gold: {
-              100: '#fff9db',
-              200: '#fbeea8',
-              300: '#f4d068',
-              400: '#e2b755',
-              500: '#d4af37',
-              600: '#b89224',
-              700: '#997819',
-              800: '#755b11',
-            },
-            royal: {
-              dark: '#0d0407',
-              wine: '#240712',
-              crimson: '#630c1f',
-              rose: '#96233c',
-              cream: '#faf5ee',
-            }
-          },
-          fontFamily: {
-            script: ['"Great Vibes"', 'cursive'],
-            alex: ['"Alex Brush"', 'cursive'],
-            cinzel: ['"Cinzel"', 'serif'],
-            cinzelDec: ['"Cinzel Decorative"', 'serif'],
-            playfair: ['"Playfair Display"', 'serif'],
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Open Graph / WhatsApp Preview Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Anshul &amp; Himanshi — Wedding Invitation">
+  <meta property="og:description" content="A celebration of love, togetherness & forever. 24 November 2026 • Jaipur, Rajasthan.">
+  <meta property="og:image" content="assets/images/couple.jpg">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Cormorant Garamond, Cinzel, Montserrat, Alex Brush -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700;800&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome 6 Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- AOS (Animate On Scroll) -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-  <!-- Swiper.js CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-  <!-- Custom Wedding Stylesheet -->
+  <!-- Custom Luxury Editorial Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[#0e0408] text-stone-200 antialiased selection:bg-amber-500/30 selection:text-amber-200">
+<body>
 
-  <!-- Falling Rose Petals & Golden Stardust Canvas -->
-  <canvas id="petals-canvas"></canvas>
+  <!-- Floating Jasmine Petals & Champagne Dust Canvas -->
+  <canvas id="ambient-canvas"></canvas>
 
-  <!-- Floating Audio Playback Toggle Button -->
-  <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
-    <span class="hidden sm:inline-block px-3 py-1 rounded-full royal-glass text-xs text-amber-300 font-cinzel border border-amber-500/30 shadow-md">
-      Wedding Music
-    </span>
-    <button id="audio-toggle-btn" class="audio-btn w-12 h-12 rounded-full bg-gradient-to-tr from-amber-600 via-yellow-500 to-amber-300 text-royal-dark flex items-center justify-center text-lg font-bold shadow-2xl transition transform hover:scale-110 active:scale-95" aria-label="Toggle Wedding Music">
-      <i id="audio-icon" class="fa-solid fa-volume-xmark"></i>
+  <!-- ==========================================================================
+       TOP BAR: MINIMAL MONOGRAM & DISCREET AUDIO
+       ========================================================================== -->
+  <header class="top-bar">
+    <a href="#hero" class="monogram-badge" aria-label="Anshul and Himanshi Monogram">
+      <div class="monogram-circle">
+        <span class="monogram-text">A&amp;H</span>
+      </div>
+      <span class="caps-detail" style="letter-spacing: 0.25em;">24 • 11 • 2026</span>
+    </a>
+
+    <!-- Discreet Wedding Music Toggle -->
+    <button id="audio-toggle-btn" class="audio-toggle-btn" aria-label="Toggle Wedding Music">
+      <div class="sound-waves">
+        <span class="sound-bar"></span>
+        <span class="sound-bar"></span>
+        <span class="sound-bar"></span>
+      </div>
+      <span id="audio-label">Music</span>
     </button>
-  </div>
-
-  <!-- ==========================================================================
-       ROYAL ENVELOPE / OPENING INVITATION MODAL
-       ========================================================================== -->
-  <div id="envelope-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md px-4 overflow-y-auto py-8">
-    <div class="relative w-full max-w-lg p-8 sm:p-12 text-center rounded-3xl bg-gradient-to-b from-[#250914] via-[#1a060e] to-[#0e0408] border-2 border-amber-400/50 shadow-[0_0_50px_rgba(212,175,55,0.35)] animate-float-slow">
-      <!-- Decorative Ornate Corners -->
-      <div class="corner-flourish corner-top-left text-amber-400/60">
-        <svg viewBox="0 0 100 100" fill="currentColor"><path d="M0,0 L100,0 C60,0 0,60 0,100 Z"/></svg>
-      </div>
-      <div class="corner-flourish corner-top-right text-amber-400/60">
-        <svg viewBox="0 0 100 100" fill="currentColor"><path d="M0,0 L100,0 C60,0 0,60 0,100 Z"/></svg>
-      </div>
-      <div class="corner-flourish corner-bottom-left text-amber-400/60">
-        <svg viewBox="0 0 100 100" fill="currentColor"><path d="M0,0 L100,0 C60,0 0,60 0,100 Z"/></svg>
-      </div>
-      <div class="corner-flourish corner-bottom-right text-amber-400/60">
-        <svg viewBox="0 0 100 100" fill="currentColor"><path d="M0,0 L100,0 C60,0 0,60 0,100 Z"/></svg>
-      </div>
-
-      <!-- Auspicious Vedic Invocation -->
-      <div class="mb-4 text-amber-300 font-cinzel text-sm sm:text-base tracking-[0.3em] uppercase">
-        ॥ श्री गणेशाय नमः ॥
-      </div>
-
-      <!-- Royal Monogram Crest -->
-      <div class="w-20 h-20 mx-auto my-3 rounded-full border-2 border-amber-400/80 p-1 flex items-center justify-center shadow-lg bg-royal-wine/80">
-        <span class="font-cinzel-dec font-bold text-2xl text-amber-300 tracking-wider">H &amp; A</span>
-      </div>
-
-      <p class="font-cinzel text-xs uppercase tracking-[0.25em] text-amber-200/80 mb-2">
-        An Auspicious Royal Invitation
-      </p>
-
-      <h1 class="font-script text-5xl sm:text-6xl text-amber-300 my-4 gold-shimmer font-normal drop-shadow-md">
-        Himanshi &amp; Anshul
-      </h1>
-
-      <p class="font-cinzel text-sm text-stone-300 tracking-widest uppercase mb-1">
-        Request the pleasure of your company
-      </p>
-      <p class="font-cinzel text-xs text-amber-400/90 tracking-wider mb-6">
-        24th November, 2026 • Jaipur, Rajasthan
-      </p>
-
-      <!-- Royal Wax Seal Action Button -->
-      <div class="my-6 flex flex-col items-center justify-center">
-        <div id="wax-seal" class="wax-seal w-24 h-24 rounded-full cursor-pointer flex flex-col items-center justify-center border-2 border-amber-300/60 group">
-          <i class="fa-solid fa-envelope-open-text text-amber-200 text-2xl mb-1 group-hover:scale-110 transition duration-300"></i>
-          <span class="font-cinzel text-[10px] text-amber-100 tracking-widest font-semibold uppercase">Open</span>
-        </div>
-        <p class="text-xs text-amber-300/70 mt-3 font-cinzel tracking-wider animate-pulse">
-          Click the Royal Wax Seal to open invitation
-        </p>
-      </div>
-
-      <button id="open-invite-btn" class="mt-2 px-8 py-3 rounded-full bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 text-royal-dark font-cinzel font-bold text-sm tracking-widest uppercase shadow-xl hover:brightness-110 transition transform hover:-translate-y-0.5">
-        Explore Wedding Invitation &rarr;
-      </button>
-    </div>
-  </div>
-
-  <!-- ==========================================================================
-       STICKY LUXURY NAVIGATION HEADER
-       ========================================================================== -->
-  <header class="sticky top-0 z-40 bg-[#12050b]/85 backdrop-blur-md border-b border-amber-500/25 px-4 sm:px-8 py-3">
-    <div class="max-w-6xl mx-auto flex items-center justify-between">
-      <a href="#hero" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-full border border-amber-400/80 flex items-center justify-center bg-royal-wine text-amber-300 font-cinzel-dec font-bold text-sm shadow">
-          H&amp;A
-        </div>
-        <span class="font-script text-2xl sm:text-3xl text-amber-300 group-hover:text-amber-200 transition">
-          Himanshi &amp; Anshul
-        </span>
-      </a>
-
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-6 font-cinzel text-xs uppercase tracking-widest text-stone-300">
-        <a href="#couple" class="hover:text-amber-300 transition">The Couple</a>
-        <a href="#events" class="hover:text-amber-300 transition">Events</a>
-        <a href="#gallery" class="hover:text-amber-300 transition">Moments</a>
-        <a href="#venue" class="hover:text-amber-300 transition">Venue</a>
-        <a href="#rsvp" class="hover:text-amber-300 transition">RSVP</a>
-        <a href="#rsvp" class="px-4 py-2 rounded-full border border-amber-400/60 text-amber-300 hover:bg-amber-400 hover:text-royal-dark font-bold transition">
-          Send Wishes
-        </a>
-      </nav>
-
-      <!-- Mobile Nav Quick Jump Button -->
-      <a href="#events" class="md:hidden px-3 py-1.5 rounded-full border border-amber-400/50 text-xs font-cinzel text-amber-300">
-        Itinerary
-      </a>
-    </div>
   </header>
 
-  <!-- ==========================================================================
-       HERO BANNER SECTION
-       ========================================================================== -->
-  <section id="hero" class="relative min-h-[92vh] flex items-center justify-center px-4 py-16 overflow-hidden">
-    <!-- Background Image with Gradient Overlay -->
-    <div class="absolute inset-0 z-0">
-      <img src="assets/images/couple_hero.jpg" alt="Himanshi and Anshul Royal Wedding Portrait" class="w-full h-full object-cover object-center filter brightness-[0.4] scale-105 transform animate-float-slow">
-      <div class="absolute inset-0 bg-gradient-to-t from-[#0e0408] via-[#0e0408]/60 to-[#0e0408]/80"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(14,4,8,0.85)_100%)]"></div>
-    </div>
+  <div class="invitation-wrapper">
 
-    <!-- Hero Content Card -->
-    <div class="relative z-10 max-w-4xl mx-auto text-center px-4" data-aos="fade-up" data-aos-duration="1200">
-      <!-- Invocation -->
-      <div class="inline-flex items-center gap-3 px-6 py-1.5 rounded-full royal-glass border border-amber-400/30 text-amber-300 font-cinzel text-xs sm:text-sm tracking-[0.25em] uppercase mb-6 shadow-lg">
-        <i class="fa-solid fa-om text-amber-400"></i>
-        <span>शुभ विवाह • Auspicious Wedding</span>
-        <i class="fa-solid fa-om text-amber-400"></i>
+    <!-- ==========================================================================
+         1. OPENING / HERO SECTION
+         ========================================================================== -->
+    <section id="hero" class="hero-section">
+      <!-- Auspicious Vedic Invocation -->
+      <p class="vedic-invocation reveal-item delay-100">
+        ॥ श्री गणेशाय नमः ॥
+      </p>
+
+      <!-- Couple Names in Editorial Serif -->
+      <div class="hero-names-group reveal-item delay-200">
+        <h1 class="hero-name">Anshul</h1>
+        <span class="hero-ampersand">&amp;</span>
+        <h2 class="hero-name">Himanshi</h2>
       </div>
 
-      <p class="font-cinzel text-sm sm:text-base uppercase tracking-[0.3em] text-stone-300 font-semibold mb-3">
-        Together with the blessings of our parents
+      <!-- Wedding Date Banner -->
+      <div class="hero-date-banner reveal-item delay-300">
+        <span class="hero-date-text">24 November 2026</span>
+      </div>
+
+      <!-- Editorial Subtitle Line -->
+      <p class="hero-tagline reveal-item delay-400">
+        A celebration of love, togetherness &amp; forever
       </p>
 
-      <h1 class="font-script text-6xl sm:text-8xl md:text-9xl text-amber-200 gold-shimmer font-normal leading-tight my-2 drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
-        Himanshi &amp; Anshul
-      </h1>
+      <!-- Centered Royal Arch Photo Composition (Uploaded Couple Photo) -->
+      <div class="hero-photo-container reveal-item delay-500">
+        <!-- Delicate Corner Flourish SVGs -->
+        <svg class="arch-corner-ornament arch-corner-bl" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 38V18C2 9.16344 9.16344 2 18 2H38" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 2"/>
+          <path d="M6 38V22C6 13.1634 13.1634 6 22 6H38" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="6" cy="38" r="2" fill="currentColor"/>
+          <circle cx="38" cy="6" r="2" fill="currentColor"/>
+        </svg>
+        <svg class="arch-corner-ornament arch-corner-br" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 38V18C2 9.16344 9.16344 2 18 2H38" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 2"/>
+          <path d="M6 38V22C6 13.1634 13.1634 6 22 6H38" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="6" cy="38" r="2" fill="currentColor"/>
+          <circle cx="38" cy="6" r="2" fill="currentColor"/>
+        </svg>
 
-      <p class="font-playfair italic text-lg sm:text-2xl text-amber-100/90 max-w-2xl mx-auto my-4 font-light">
-        "Two souls with but a single thought, two hearts that beat as one."
-      </p>
-
-      <!-- Wedding Date Highlights -->
-      <div class="my-8 inline-block p-4 sm:p-6 rounded-2xl royal-glass border border-amber-400/40 shadow-2xl">
-        <div class="flex items-center justify-center gap-4 sm:gap-8 font-cinzel text-stone-200">
-          <div class="text-right">
-            <span class="block text-xs uppercase tracking-widest text-amber-400/90">Tuesday</span>
-            <span class="text-xl sm:text-3xl font-bold text-amber-200">24</span>
-          </div>
-          <div class="w-px h-12 bg-amber-400/40"></div>
-          <div class="text-center px-2">
-            <span class="block text-lg sm:text-2xl font-bold uppercase tracking-widest text-amber-300">November</span>
-            <span class="block text-xs tracking-[0.25em] text-stone-300">2026</span>
-          </div>
-          <div class="w-px h-12 bg-amber-400/40"></div>
-          <div class="text-left">
-            <span class="block text-xs uppercase tracking-widest text-amber-400/90">Muhurat</span>
-            <span class="text-xl sm:text-3xl font-bold text-amber-200">6:00 PM</span>
-          </div>
+        <!-- Arched Frame for Couple Photo -->
+        <div class="hero-photo-inner-frame">
+          <img 
+            src="assets/images/couple.jpg" 
+            alt="Anshul and Himanshi Wedding Portrait" 
+            class="hero-couple-img parallax-img"
+            loading="eager"
+          />
         </div>
-        <p class="mt-3 text-xs sm:text-sm font-cinzel tracking-widest text-amber-300/80 uppercase">
-          <i class="fa-solid fa-location-dot mr-1.5 text-amber-400"></i> The Royal Heritage Palace • Jaipur, India
+      </div>
+    </section>
+
+    <!-- Delicate Botanical Separator -->
+    <div class="delicate-divider reveal-item">
+      <span class="divider-line"></span>
+      <svg class="lotus-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 4C16 11 11 18 16 26C21 18 16 11 16 4Z" fill="currentColor" opacity="0.6"/>
+        <path d="M16 13C12 16 8 19 9 24C12 25 15 22 16 19" stroke="currentColor" stroke-width="1.2"/>
+        <path d="M16 13C20 16 24 19 23 24C20 25 17 22 16 19" stroke="currentColor" stroke-width="1.2"/>
+        <circle cx="16" cy="27" r="1.5" fill="currentColor"/>
+      </svg>
+      <span class="divider-line"></span>
+    </div>
+
+    <!-- ==========================================================================
+         2. INVITATION MESSAGE SECTION
+         ========================================================================== -->
+    <section class="invitation-section">
+      <div class="invitation-card reveal-item">
+        <p class="invitation-pretext">
+          Joyfully Requesting Your Presence
+        </p>
+
+        <p class="invitation-quote">
+          &ldquo;With the blessings of our families,<br>
+          we invite you to celebrate the beginning<br>
+          of our forever.&rdquo;
+        </p>
+
+        <div class="invitation-date-highlight">
+          24 NOVEMBER 2026
+        </div>
+
+        <p class="invitation-city">
+          Jaipur, Rajasthan
         </p>
       </div>
+    </section>
 
-      <!-- Action Buttons -->
-      <div class="flex flex-wrap items-center justify-center gap-4 mt-4">
-        <a href="#rsvp" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 text-royal-dark font-cinzel font-bold text-sm tracking-wider uppercase shadow-[0_0_25px_rgba(212,175,55,0.4)] hover:brightness-110 transition transform hover:-translate-y-1">
-          <i class="fa-solid fa-envelope-circle-check mr-2"></i> RSVP Attendance
-        </a>
-        <a id="add-gcal-btn" target="_blank" rel="noopener noreferrer" class="px-7 py-3.5 rounded-full royal-glass border border-amber-400/50 text-amber-200 font-cinzel text-sm font-semibold tracking-wider uppercase hover:bg-amber-400/20 transition transform hover:-translate-y-1">
-          <i class="fa-regular fa-calendar-plus mr-2 text-amber-400"></i> Save The Date
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       LIVE COUNTDOWN SECTION
-       ========================================================================== -->
-  <section class="relative z-20 -mt-10 max-w-4xl mx-auto px-4">
-    <div class="royal-glass p-6 sm:p-8 rounded-3xl border border-amber-500/40 shadow-2xl backdrop-blur-xl" data-aos="zoom-in" data-aos-delay="100">
-      <div class="text-center mb-6">
-        <p class="font-cinzel text-xs uppercase tracking-[0.3em] text-amber-300/90">Counting Down To Our Forever</p>
-        <h3 class="font-playfair text-2xl sm:text-3xl text-amber-100 font-normal">Every Second Closer to Our Big Day</h3>
-      </div>
-
-      <div class="grid grid-cols-4 gap-3 sm:gap-6 text-center">
-        <!-- Days -->
-        <div class="bg-black/40 p-3 sm:p-5 rounded-2xl border border-amber-500/20 group hover:border-amber-400/50 transition">
-          <span id="cd-days" class="block font-cinzel font-extrabold text-3xl sm:text-5xl text-amber-300 gold-shimmer">00</span>
-          <span class="text-[10px] sm:text-xs font-cinzel uppercase tracking-widest text-stone-400 mt-1 block">Days</span>
-        </div>
-        <!-- Hours -->
-        <div class="bg-black/40 p-3 sm:p-5 rounded-2xl border border-amber-500/20 group hover:border-amber-400/50 transition">
-          <span id="cd-hours" class="block font-cinzel font-extrabold text-3xl sm:text-5xl text-amber-300 gold-shimmer">00</span>
-          <span class="text-[10px] sm:text-xs font-cinzel uppercase tracking-widest text-stone-400 mt-1 block">Hours</span>
-        </div>
-        <!-- Minutes -->
-        <div class="bg-black/40 p-3 sm:p-5 rounded-2xl border border-amber-500/20 group hover:border-amber-400/50 transition">
-          <span id="cd-minutes" class="block font-cinzel font-extrabold text-3xl sm:text-5xl text-amber-300 gold-shimmer">00</span>
-          <span class="text-[10px] sm:text-xs font-cinzel uppercase tracking-widest text-stone-400 mt-1 block">Minutes</span>
-        </div>
-        <!-- Seconds -->
-        <div class="bg-black/40 p-3 sm:p-5 rounded-2xl border border-amber-500/20 group hover:border-amber-400/50 transition">
-          <span id="cd-seconds" class="block font-cinzel font-extrabold text-3xl sm:text-5xl text-amber-300 gold-shimmer">00</span>
-          <span class="text-[10px] sm:text-xs font-cinzel uppercase tracking-widest text-stone-400 mt-1 block">Seconds</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       MEET THE BRIDE & GROOM SECTION
-       ========================================================================== -->
-  <section id="couple" class="py-24 px-4 max-w-6xl mx-auto relative">
-    <div class="text-center mb-16" data-aos="fade-up">
-      <div class="inline-block text-amber-400 font-cinzel text-xs uppercase tracking-[0.3em] mb-2">The Happy Couple</div>
-      <h2 class="font-script text-5xl sm:text-7xl text-amber-300 gold-shimmer font-normal mb-3">Meet Bride &amp; Groom</h2>
-      <div class="w-24 h-1 mx-auto bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
+    <!-- Delicate Botanical Separator -->
+    <div class="delicate-divider reveal-item">
+      <span class="divider-line"></span>
+      <span class="divider-diamond"></span>
+      <span class="divider-line"></span>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-16 items-center">
-      <!-- Bride Card -->
-      <div class="royal-glass p-6 sm:p-8 rounded-3xl border border-amber-500/30 shadow-2xl relative group hover:border-amber-400/60 transition duration-500" data-aos="fade-right" data-aos-duration="1000">
-        <div class="relative overflow-hidden rounded-2xl mb-6 aspect-[3/4] cursor-pointer" data-lightbox-src="assets/images/bride_himanshi.jpg" data-lightbox-caption="Himanshi - The Royal Bride">
-          <img src="assets/images/bride_himanshi.jpg" alt="Himanshi - The Bride" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#1b0811] via-transparent to-transparent opacity-80"></div>
-          <div class="absolute bottom-4 left-4 right-4 text-center">
-            <span class="px-4 py-1 rounded-full royal-glass border border-amber-400/40 text-xs font-cinzel text-amber-200 tracking-widest uppercase">
-              The Bride
-            </span>
+    <!-- ==========================================================================
+         3. COUPLE PHOTO SECTION (EDITORIAL MAGAZINE COMPOSITION)
+         ========================================================================== -->
+    <section class="editorial-couple-section">
+      <div class="editorial-layout">
+        <!-- Layered Photo Composition -->
+        <div class="editorial-photo-wrapper reveal-item delay-100">
+          <div class="editorial-backdrop-frame"></div>
+          
+          <div class="editorial-photo-mat">
+            <div class="editorial-photo-inner">
+              <img 
+                src="assets/images/couple.jpg" 
+                alt="Editorial Portrait of Anshul and Himanshi" 
+                class="editorial-couple-img parallax-img"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Overlapping Translucent Badge -->
+          <div class="editorial-overlap-badge">
+            <div class="badge-names">Anshul &amp; Himanshi</div>
+            <div class="badge-sub">Jaipur • November 2026</div>
           </div>
         </div>
 
-        <div class="text-center">
-          <h3 class="font-script text-4xl sm:text-5xl text-amber-200 mb-1">Himanshi</h3>
-          <p class="font-cinzel text-xs text-amber-400 tracking-widest uppercase font-semibold mb-4">
-            Daughter of Mr. &amp; Mrs. Sharma
+        <!-- Editorial Typography & Poetic Story -->
+        <div class="editorial-content reveal-item delay-200">
+          <span class="editorial-tag">The Beginning</span>
+          
+          <h3 class="editorial-title">
+            The Journey of<br>Two Souls
+          </h3>
+
+          <p class="editorial-quote">
+            &ldquo;In your eyes, I found my home.<br>
+            In your heart, I found my love.&rdquo;
           </p>
-          <p class="text-stone-300 text-sm leading-relaxed font-light mb-6">
-            A gentle spirit with a vibrant heart, graceful laughter, and an eye for art and design. Himanshi brings sunshine and warmth to every life she touches.
-          </p>
-          <div class="flex items-center justify-center gap-3 text-amber-400/80 text-xs font-cinzel tracking-wider">
-            <i class="fa-solid fa-heart text-amber-400"></i>
-            <span>"In Anshul, I found my quiet home and greatest adventure."</span>
-          </div>
+
+          <ul class="editorial-details-list">
+            <li class="editorial-detail-item">
+              <span class="detail-bullet"></span>
+              <span>Coordinates: 26.9124° N, 75.7873° E</span>
+            </li>
+            <li class="editorial-detail-item">
+              <span class="detail-bullet"></span>
+              <span>Pink City • Royal Heritage</span>
+            </li>
+            <li class="editorial-detail-item">
+              <span class="detail-bullet"></span>
+              <span>An Eternal Promise</span>
+            </li>
+          </ul>
         </div>
       </div>
+    </section>
 
-      <!-- Groom Card -->
-      <div class="royal-glass p-6 sm:p-8 rounded-3xl border border-amber-500/30 shadow-2xl relative group hover:border-amber-400/60 transition duration-500" data-aos="fade-left" data-aos-duration="1000">
-        <div class="relative overflow-hidden rounded-2xl mb-6 aspect-[3/4] cursor-pointer" data-lightbox-src="assets/images/groom_anshul.jpg" data-lightbox-caption="Anshul - The Royal Groom">
-          <img src="assets/images/groom_anshul.jpg" alt="Anshul - The Groom" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#1b0811] via-transparent to-transparent opacity-80"></div>
-          <div class="absolute bottom-4 left-4 right-4 text-center">
-            <span class="px-4 py-1 rounded-full royal-glass border border-amber-400/40 text-xs font-cinzel text-amber-200 tracking-widest uppercase">
-              The Groom
-            </span>
-          </div>
-        </div>
-
-        <div class="text-center">
-          <h3 class="font-script text-4xl sm:text-5xl text-amber-200 mb-1">Anshul</h3>
-          <p class="font-cinzel text-xs text-amber-400 tracking-widest uppercase font-semibold mb-4">
-            Son of Mr. &amp; Mrs. Verma
-          </p>
-          <p class="text-stone-300 text-sm leading-relaxed font-light mb-6">
-            Charismatic, ambitious, and deeply grounded in values. Anshul’s devotion and protective warmth make him the anchor that turns dreams into reality.
-          </p>
-          <div class="flex items-center justify-center gap-3 text-amber-400/80 text-xs font-cinzel tracking-wider">
-            <i class="fa-solid fa-heart text-amber-400"></i>
-            <span>"With Himanshi, every moment feels like an endless celebration."</span>
-          </div>
-        </div>
-      </div>
+    <!-- Delicate Botanical Separator -->
+    <div class="delicate-divider reveal-item">
+      <span class="divider-line"></span>
+      <svg class="lotus-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 4C16 11 11 18 16 26C21 18 16 11 16 4Z" fill="currentColor" opacity="0.6"/>
+        <path d="M16 13C12 16 8 19 9 24C12 25 15 22 16 19" stroke="currentColor" stroke-width="1.2"/>
+        <path d="M16 13C20 16 24 19 23 24C20 25 17 22 16 19" stroke="currentColor" stroke-width="1.2"/>
+        <circle cx="16" cy="27" r="1.5" fill="currentColor"/>
+      </svg>
+      <span class="divider-line"></span>
     </div>
-  </section>
 
-  <!-- ==========================================================================
-       ROYAL WEDDING ITINERARY & CEREMONIAL TIMELINE
-       ========================================================================== -->
-  <section id="events" class="py-24 px-4 bg-gradient-to-b from-[#0e0408] via-[#1a0812] to-[#0e0408] border-y border-amber-500/20 relative">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <span class="text-amber-400 font-cinzel text-xs uppercase tracking-[0.3em] block mb-2">Celebrations &amp; Rituals</span>
-        <h2 class="font-script text-5xl sm:text-7xl text-amber-300 gold-shimmer font-normal mb-3">Wedding Itinerary</h2>
-        <p class="font-cinzel text-xs sm:text-sm text-stone-300 uppercase tracking-widest">
-          Join us for every magical celebration across 3 joyous days
+    <!-- ==========================================================================
+         4. WEDDING DAY SECTION
+         ========================================================================== -->
+    <section class="wedding-day-section">
+      <div class="event-card reveal-item">
+        <p class="event-header-label">Auspicious Ceremony</p>
+        
+        <h2 class="event-main-title">The Wedding</h2>
+
+        <!-- Event Date Highlights -->
+        <div class="event-date-row">
+          <div class="date-segment">
+            <span class="date-day-name">Tuesday</span>
+            <span class="date-number">24</span>
+          </div>
+
+          <div class="date-divider-vertical"></div>
+
+          <div class="date-segment">
+            <span class="date-month-year">November</span>
+            <span class="date-time">2026</span>
+          </div>
+        </div>
+
+        <!-- Venue Block -->
+        <div class="venue-block">
+          <p class="caps-detail" style="margin-bottom: 0.5rem; color: var(--gold-dark);">Venue &amp; Reception</p>
+          <h3 class="venue-name">The Royal Heritage Palace</h3>
+          <p class="venue-location">Jaipur, Rajasthan, India</p>
+          <p class="venue-time-sub">Auspicious Ceremony at 6:00 PM</p>
+        </div>
+
+        <!-- Action Links: View Location & Calendar -->
+        <div class="event-actions">
+          <a 
+            href="https://maps.google.com/?q=The+Royal+Heritage+Palace+Jaipur" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn-editorial-primary"
+            aria-label="View Venue Location on Google Maps"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>View Location</span>
+          </a>
+
+          <a 
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Anshul+%26+Himanshi&dates=20261124T123000Z/20261124T183000Z&details=With+the+blessings+of+our+families,+we+invite+you+to+celebrate+the+beginning+of+our+forever.&location=The+Royal+Heritage+Palace,+Jaipur,+Rajasthan" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn-editorial-outline"
+            aria-label="Add Wedding to Google Calendar"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span>Save The Date</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Delicate Botanical Separator -->
+    <div class="delicate-divider reveal-item">
+      <span class="divider-line"></span>
+      <span class="divider-diamond"></span>
+      <span class="divider-line"></span>
+    </div>
+
+    <!-- ==========================================================================
+         5. SMALL PERSONAL DETAIL SECTION
+         ========================================================================== -->
+    <section class="personal-detail-section">
+      <div class="detail-verse-box reveal-item">
+        <p class="poetic-line-1">
+          Two hearts.
         </p>
-        <div class="w-24 h-1 mx-auto bg-gradient-to-r from-transparent via-amber-400 to-transparent mt-4"></div>
+        <p class="poetic-line-2">
+          One beautiful beginning.
+        </p>
+        <span class="detail-script-accent">
+          And so, our forever begins.
+        </span>
       </div>
+    </section>
 
-      <!-- Timeline Events -->
-      <div class="relative border-l-2 border-amber-500/30 ml-4 sm:ml-32 md:ml-40 space-y-12 pb-4">
-
-        <!-- Event 1: Haldi & Floral Bliss -->
-        <div class="relative pl-8 sm:pl-12 group" data-aos="fade-up" data-aos-duration="800">
-          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-royal-dark text-sm font-bold shadow-[0_0_15px_rgba(212,175,55,0.7)] group-hover:scale-125 transition">
-            <i class="fa-solid fa-sun"></i>
-          </div>
-
-          <div class="royal-glass p-6 sm:p-8 rounded-2xl border border-amber-500/30 shadow-xl group-hover:border-amber-400/60 transition">
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-              <span class="px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 font-cinzel text-xs tracking-wider uppercase font-semibold">
-                Sunday, 22 November 2026 • 10:00 AM
-              </span>
-              <span class="text-xs font-cinzel text-stone-400"><i class="fa-solid fa-palette text-amber-400 mr-1"></i> Dress Code: Sunshine Yellow</span>
-            </div>
-            <h3 class="font-playfair text-2xl sm:text-3xl text-amber-200 font-semibold mb-2">
-              Haldi &amp; Phoolon Ki Holi
-            </h3>
-            <p class="text-stone-300 text-sm leading-relaxed font-light mb-4">
-              An auspicious morning filled with golden turmeric blessings, fresh marigold petals, traditional dhol beats, and endless laughter.
-            </p>
-            <div class="flex items-center gap-4 text-xs font-cinzel text-amber-300/80">
-              <span><i class="fa-solid fa-location-dot mr-1 text-amber-400"></i> The Palace Central Courtyard</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 2: Mehendi & Sangeet Night -->
-        <div class="relative pl-8 sm:pl-12 group" data-aos="fade-up" data-aos-duration="800">
-          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-amber-400 flex items-center justify-center text-royal-dark text-sm font-bold shadow-[0_0_15px_rgba(212,175,55,0.7)] group-hover:scale-125 transition">
-            <i class="fa-solid fa-music"></i>
-          </div>
-
-          <div class="royal-glass p-6 sm:p-8 rounded-2xl border border-amber-500/30 shadow-xl group-hover:border-amber-400/60 transition">
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-              <span class="px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 font-cinzel text-xs tracking-wider uppercase font-semibold">
-                Monday, 23 November 2026 • 6:30 PM
-              </span>
-              <span class="text-xs font-cinzel text-stone-400"><i class="fa-solid fa-gem text-amber-400 mr-1"></i> Dress Code: Glamorous Indo-Western</span>
-            </div>
-            <h3 class="font-playfair text-2xl sm:text-3xl text-amber-200 font-semibold mb-2">
-              Mehendi &amp; Musical Sangeet Night
-            </h3>
-            <p class="text-stone-300 text-sm leading-relaxed font-light mb-4">
-              Intricate henna art for the bride, high-energy family dance performances, DJ beats, cocktails, and midnight food trucks under the stars.
-            </p>
-            <div class="flex items-center gap-4 text-xs font-cinzel text-amber-300/80">
-              <span><i class="fa-solid fa-location-dot mr-1 text-amber-400"></i> The Grand Durbar Ballroom</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 3: The Royal Baraat & Varmala (Main Wedding Day) -->
-        <div class="relative pl-8 sm:pl-12 group" data-aos="fade-up" data-aos-duration="800">
-          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-gradient-to-r from-yellow-300 to-amber-500 flex items-center justify-center text-royal-dark text-sm font-bold shadow-[0_0_20px_rgba(212,175,55,0.9)] animate-pulse group-hover:scale-125 transition">
-            <i class="fa-solid fa-ring"></i>
-          </div>
-
-          <div class="royal-glass p-6 sm:p-8 rounded-2xl border-2 border-amber-400/60 shadow-[0_0_30px_rgba(212,175,55,0.2)] group-hover:border-amber-400 transition">
-            <div class="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 text-royal-dark font-cinzel text-xs tracking-wider uppercase font-extrabold mb-3">
-              ★ The Wedding Day • 24 November 2026
-            </div>
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-              <span class="text-amber-300 font-cinzel text-sm tracking-wider uppercase font-semibold">
-                Tuesday Evening • 5:30 PM Onwards
-              </span>
-              <span class="text-xs font-cinzel text-stone-400"><i class="fa-solid fa-crown text-amber-400 mr-1"></i> Dress Code: Royal Traditional Ethnic</span>
-            </div>
-            <h3 class="font-playfair text-2xl sm:text-4xl text-amber-200 font-bold mb-2">
-              Royal Baraat Arrival &amp; Varmala
-            </h3>
-            <p class="text-stone-300 text-sm leading-relaxed font-light mb-4">
-              Grand groom procession with royal elephants &amp; brass band, followed by the enchanting Varmala garland exchange under falling flower shower.
-            </p>
-            <div class="flex items-center gap-4 text-xs font-cinzel text-amber-300/80">
-              <span><i class="fa-solid fa-location-dot mr-1 text-amber-400"></i> Royal Palace Grand Gateway &amp; Front Lawn</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 4: Sacred Pheras & Reception -->
-        <div class="relative pl-8 sm:pl-12 group" data-aos="fade-up" data-aos-duration="800">
-          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-royal-dark text-sm font-bold shadow-[0_0_15px_rgba(212,175,55,0.7)] group-hover:scale-125 transition">
-            <i class="fa-solid fa-fire"></i>
-          </div>
-
-          <div class="royal-glass p-6 sm:p-8 rounded-2xl border border-amber-500/30 shadow-xl group-hover:border-amber-400/60 transition">
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-              <span class="px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 font-cinzel text-xs tracking-wider uppercase font-semibold">
-                Tuesday, 24 November 2026 • 7:30 PM &amp; 8:45 PM
-              </span>
-              <span class="text-xs font-cinzel text-stone-400"><i class="fa-solid fa-champagne-glasses text-amber-400 mr-1"></i> Royal Banquet</span>
-            </div>
-            <h3 class="font-playfair text-2xl sm:text-3xl text-amber-200 font-semibold mb-2">
-              Sacred Pheras &amp; Grand Gala Reception
-            </h3>
-            <p class="text-stone-300 text-sm leading-relaxed font-light mb-4">
-              Seven sacred vows around the holy fire followed by an opulent royal dinner reception with live classical fusion music and family blessings.
-            </p>
-            <div class="flex items-center gap-4 text-xs font-cinzel text-amber-300/80">
-              <span><i class="fa-solid fa-location-dot mr-1 text-amber-400"></i> The Lotus Lake Mandap &amp; Royal Dining Pavilion</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       PHOTO GALLERY & MOMENTS SLIDER (SWIPER + MASONRY)
-       ========================================================================== -->
-  <section id="gallery" class="py-24 px-4 max-w-7xl mx-auto relative">
-    <div class="text-center mb-16" data-aos="fade-up">
-      <span class="text-amber-400 font-cinzel text-xs uppercase tracking-[0.3em] block mb-2">Cherished Memories</span>
-      <h2 class="font-script text-5xl sm:text-7xl text-amber-300 gold-shimmer font-normal mb-3">Moments of Love</h2>
-      <p class="font-cinzel text-xs sm:text-sm text-stone-300 uppercase tracking-widest">
-        Click on any photo to view in high definition
-      </p>
-      <div class="w-24 h-1 mx-auto bg-gradient-to-r from-transparent via-amber-400 to-transparent mt-4"></div>
+    <!-- Delicate Botanical Separator -->
+    <div class="delicate-divider reveal-item">
+      <span class="divider-line"></span>
+      <svg class="lotus-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 4C16 11 11 18 16 26C21 18 16 11 16 4Z" fill="currentColor" opacity="0.6"/>
+        <path d="M16 13C12 16 8 19 9 24C12 25 15 22 16 19" stroke="currentColor" stroke-width="1.2"/>
+        <path d="M16 13C20 16 24 19 23 24C20 25 17 22 16 19" stroke="currentColor" stroke-width="1.2"/>
+        <circle cx="16" cy="27" r="1.5" fill="currentColor"/>
+      </svg>
+      <span class="divider-line"></span>
     </div>
 
-    <!-- Swiper Carousel Slider -->
-    <div class="mb-16" data-aos="zoom-in" data-aos-duration="1000">
-      <div class="swiper wedding-swiper pb-12">
-        <div class="swiper-wrapper">
-          <!-- Slide 1 -->
-          <div class="swiper-slide">
-            <div class="gallery-card rounded-3xl overflow-hidden royal-glass border border-amber-500/30 shadow-2xl aspect-[16/9]" data-lightbox-src="assets/images/couple_hero.jpg" data-lightbox-caption="Himanshi &amp; Anshul - Royal Palace Moments">
-              <img src="assets/images/couple_hero.jpg" alt="Himanshi &amp; Anshul Portrait" class="w-full h-full object-cover">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
-                <div>
-                  <h4 class="font-cinzel font-bold text-amber-200 text-lg sm:text-xl">Together Forever</h4>
-                  <p class="text-xs text-stone-300 font-cinzel">Himanshi &amp; Anshul at Jaipur Palace</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide 2 -->
-          <div class="swiper-slide">
-            <div class="gallery-card rounded-3xl overflow-hidden royal-glass border border-amber-500/30 shadow-2xl aspect-[16/9]" data-lightbox-src="assets/images/haldi_sangeet.jpg" data-lightbox-caption="Joyous Haldi &amp; Phoolon Ki Holi">
-              <img src="assets/images/haldi_sangeet.jpg" alt="Haldi Celebration" class="w-full h-full object-cover">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
-                <div>
-                  <h4 class="font-cinzel font-bold text-amber-200 text-lg sm:text-xl">Laughter &amp; Sunshine</h4>
-                  <p class="text-xs text-stone-300 font-cinzel">Haldi Floral Shower with Family</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide 3 -->
-          <div class="swiper-slide">
-            <div class="gallery-card rounded-3xl overflow-hidden royal-glass border border-amber-500/30 shadow-2xl aspect-[16/9]" data-lightbox-src="assets/images/ring_ceremony.jpg" data-lightbox-caption="Sacred Rituals &amp; Ring Exchange">
-              <img src="assets/images/ring_ceremony.jpg" alt="Ring Ceremony" class="w-full h-full object-cover">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
-                <div>
-                  <h4 class="font-cinzel font-bold text-amber-200 text-lg sm:text-xl">Two Hearts Bound</h4>
-                  <p class="text-xs text-stone-300 font-cinzel">Intricate Bridal Mehndi &amp; Diamond Rings</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide 4 -->
-          <div class="swiper-slide">
-            <div class="gallery-card rounded-3xl overflow-hidden royal-glass border border-amber-500/30 shadow-2xl aspect-[16/9]" data-lightbox-src="assets/images/bride_himanshi.jpg" data-lightbox-caption="Himanshi - The Radiant Bride">
-              <img src="assets/images/bride_himanshi.jpg" alt="Himanshi Solo" class="w-full h-full object-cover">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
-                <div>
-                  <h4 class="font-cinzel font-bold text-amber-200 text-lg sm:text-xl">The Radiant Bride</h4>
-                  <p class="text-xs text-stone-300 font-cinzel">Himanshi in Royal Kundan &amp; Blush Lehenga</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide 5 -->
-          <div class="swiper-slide">
-            <div class="gallery-card rounded-3xl overflow-hidden royal-glass border border-amber-500/30 shadow-2xl aspect-[16/9]" data-lightbox-src="assets/images/groom_anshul.jpg" data-lightbox-caption="Anshul - The Regal Groom">
-              <img src="assets/images/groom_anshul.jpg" alt="Anshul Solo" class="w-full h-full object-cover">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
-                <div>
-                  <h4 class="font-cinzel font-bold text-amber-200 text-lg sm:text-xl">The Regal Groom</h4>
-                  <p class="text-xs text-stone-300 font-cinzel">Anshul in Silk Sherwani &amp; Emerald Mala</p>
-                </div>
-              </div>
-            </div>
-          </div>
+    <!-- ==========================================================================
+         6. FINAL SECTION (CLOSING)
+         ========================================================================== -->
+    <footer class="closing-section">
+      <div class="closing-card reveal-item">
+        <!-- Monogram Seal -->
+        <div class="closing-seal">
+          <span class="closing-seal-text">A&amp;H</span>
         </div>
 
-        <!-- Navigation Buttons -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
+        <h3 class="closing-couple-names">
+          Anshul &amp; Himanshi
+        </h3>
+
+        <p class="closing-date">
+          24.11.2026
+        </p>
+
+        <p class="closing-message">
+          With love,<br>
+          we invite you to be part of our special day.
+        </p>
+
+        <p class="footer-credit">
+          ॥ शुभम भवतु ॥ • With the blessings of families
+        </p>
       </div>
-    </div>
+    </footer>
 
-    <!-- Masonry Image Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Grid Item 1 -->
-      <div class="gallery-card rounded-2xl overflow-hidden border border-amber-500/30 relative aspect-[4/3] group shadow-xl" data-aos="fade-up" data-lightbox-src="assets/images/ring_ceremony.jpg" data-lightbox-caption="Sacred Rituals &amp; Diamond Rings">
-        <img src="assets/images/ring_ceremony.jpg" alt="Rings Ritual" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-          <div class="w-12 h-12 rounded-full royal-glass flex items-center justify-center text-amber-300 border border-amber-400">
-            <i class="fa-solid fa-expand"></i>
-          </div>
-        </div>
-      </div>
-
-      <!-- Grid Item 2 -->
-      <div class="gallery-card rounded-2xl overflow-hidden border border-amber-500/30 relative aspect-[4/3] group shadow-xl" data-aos="fade-up" data-aos-delay="100" data-lightbox-src="assets/images/haldi_sangeet.jpg" data-lightbox-caption="Joyous Haldi Floral Shower">
-        <img src="assets/images/haldi_sangeet.jpg" alt="Haldi Moments" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-          <div class="w-12 h-12 rounded-full royal-glass flex items-center justify-center text-amber-300 border border-amber-400">
-            <i class="fa-solid fa-expand"></i>
-          </div>
-        </div>
-      </div>
-
-      <!-- Grid Item 3 -->
-      <div class="gallery-card rounded-2xl overflow-hidden border border-amber-500/30 relative aspect-[4/3] group shadow-xl" data-aos="fade-up" data-aos-delay="200" data-lightbox-src="assets/images/couple_hero.jpg" data-lightbox-caption="Himanshi &amp; Anshul - Palace Courtyard">
-        <img src="assets/images/couple_hero.jpg" alt="Couple Courtyard" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-          <div class="w-12 h-12 rounded-full royal-glass flex items-center justify-center text-amber-300 border border-amber-400">
-            <i class="fa-solid fa-expand"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       VENUE & TRAVEL DESTINATION SECTION
-       ========================================================================== -->
-  <section id="venue" class="py-24 px-4 bg-gradient-to-b from-[#0e0408] via-[#17060f] to-[#0e0408] border-t border-amber-500/20 relative">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <span class="text-amber-400 font-cinzel text-xs uppercase tracking-[0.3em] block mb-2">The Destination</span>
-        <h2 class="font-script text-5xl sm:text-7xl text-amber-300 gold-shimmer font-normal mb-3">Venue &amp; Location</h2>
-        <div class="w-24 h-1 mx-auto bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
-      </div>
-
-      <div class="royal-glass p-8 sm:p-12 rounded-3xl border border-amber-500/40 shadow-2xl relative overflow-hidden" data-aos="zoom-in" data-aos-duration="1000">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div>
-            <span class="px-4 py-1.5 rounded-full bg-amber-400/20 text-amber-300 font-cinzel text-xs uppercase tracking-widest font-semibold inline-block mb-4">
-              Royal Heritage Palace
-            </span>
-            <h3 class="font-playfair text-3xl sm:text-4xl text-amber-100 font-bold mb-3">
-              The Heritage Grand Palace &amp; Resort
-            </h3>
-            <p class="text-amber-300/80 font-cinzel text-sm mb-4">
-              <i class="fa-solid fa-location-dot text-amber-400 mr-2"></i>
-              Amber Fort Road, Amer, Jaipur, Rajasthan 302028
-            </p>
-            <p class="text-stone-300 text-sm leading-relaxed mb-6 font-light">
-              Nestled against the majestic Aravalli hills, this historic palace brings timeless Rajasthani splendor, glowing chandeliers, tranquil lotus ponds, and royal hospitality for an unforgettable wedding celebration.
-            </p>
-
-            <div class="space-y-3 font-cinzel text-xs text-stone-300 mb-8">
-              <div class="flex items-center gap-3">
-                <i class="fa-solid fa-plane text-amber-400 w-5"></i>
-                <span>Jaipur International Airport (JAI) • 25 km (approx. 40 mins)</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <i class="fa-solid fa-train text-amber-400 w-5"></i>
-                <span>Jaipur Railway Station • 18 km (approx. 30 mins)</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <i class="fa-solid fa-square-parking text-amber-400 w-5"></i>
-                <span>Complimentary valet parking &amp; luggage concierge on arrival</span>
-              </div>
-            </div>
-
-            <!-- Buttons -->
-            <div class="flex flex-wrap items-center gap-4">
-              <a href="https://maps.google.com/?q=Amber+Fort+Jaipur" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 text-royal-dark font-cinzel font-bold text-xs uppercase tracking-widest shadow-lg hover:brightness-110 transition">
-                <i class="fa-solid fa-map-location-dot mr-1.5"></i> Open in Google Maps
-              </a>
-              <button id="download-ical-btn" class="px-6 py-3 rounded-full royal-glass border border-amber-400/50 text-amber-300 font-cinzel text-xs uppercase tracking-widest hover:bg-amber-400/20 transition">
-                <i class="fa-regular fa-calendar-check mr-1.5"></i> Download iCal Event
-              </button>
-            </div>
-          </div>
-
-          <!-- Stylized Map Card -->
-          <div class="rounded-2xl overflow-hidden border border-amber-500/40 relative aspect-square sm:aspect-auto sm:h-80 shadow-2xl bg-black/60 group">
-            <iframe 
-              title="Jaipur Heritage Palace Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14227.86315273397!2d75.84587668636402!3d26.985486828551944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db06a6c4df3a1%3A0x6b4f74d0a331beee!2sAmber%20Palace!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-              class="w-full h-full border-0 filter invert contrast-125 opacity-80 group-hover:opacity-100 transition duration-500" 
-              allowfullscreen="" 
-              loading="lazy">
-            </iframe>
-            <div class="absolute bottom-3 left-3 right-3 p-3 rounded-xl royal-glass border border-amber-400/40 pointer-events-none text-center">
-              <span class="text-[11px] font-cinzel text-amber-200">The Heritage Grand Palace • Amer, Jaipur</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       RSVP & BLESSINGS GUESTBOOK SECTION
-       ========================================================================== -->
-  <section id="rsvp" class="py-24 px-4 max-w-6xl mx-auto relative">
-    <div class="text-center mb-16" data-aos="fade-up">
-      <span class="text-amber-400 font-cinzel text-xs uppercase tracking-[0.3em] block mb-2">Be Our Guest</span>
-      <h2 class="font-script text-5xl sm:text-7xl text-amber-300 gold-shimmer font-normal mb-3">RSVP &amp; Blessings</h2>
-      <p class="font-cinzel text-xs sm:text-sm text-stone-300 uppercase tracking-widest">
-        Your presence and prayers will double our joy
-      </p>
-      <div class="w-24 h-1 mx-auto bg-gradient-to-r from-transparent via-amber-400 to-transparent mt-4"></div>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-      <!-- RSVP Form -->
-      <div class="lg:col-span-6 royal-glass p-8 sm:p-10 rounded-3xl border border-amber-500/40 shadow-2xl" data-aos="fade-right">
-        <h3 class="font-playfair text-2xl text-amber-200 font-semibold mb-2">Confirm Your Attendance</h3>
-        <p class="text-stone-400 text-xs font-cinzel mb-6 tracking-wider">Please RSVP by 10th November 2026</p>
-
-        <!-- Success Alert -->
-        <div id="rsvp-success-msg" class="hidden mb-6 p-4 rounded-xl bg-amber-500/20 border border-amber-400 text-amber-200 text-sm font-cinzel text-center">
-          <i class="fa-solid fa-circle-check mr-2 text-amber-400 text-base"></i>
-          Thank you! Your RSVP and blessings have been warmly received.
-        </div>
-
-        <form id="rsvp-form" class="space-y-4">
-          <div>
-            <label for="rsvp-name" class="block font-cinzel text-xs text-amber-300 uppercase tracking-wider mb-1.5">Your Full Name *</label>
-            <input type="text" id="rsvp-name" required placeholder="e.g. Mr. &amp; Mrs. Sharma" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-amber-500/30 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-amber-400 transition text-sm">
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label for="rsvp-guests" class="block font-cinzel text-xs text-amber-300 uppercase tracking-wider mb-1.5">Number of Guests</label>
-              <select id="rsvp-guests" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-amber-500/30 text-stone-100 focus:outline-none focus:border-amber-400 transition text-sm">
-                <option value="1">1 Person</option>
-                <option value="2" selected>2 Persons</option>
-                <option value="3">3 Persons</option>
-                <option value="4+">Family (4+ Persons)</option>
-              </select>
-            </div>
-
-            <div>
-              <label class="block font-cinzel text-xs text-amber-300 uppercase tracking-wider mb-1.5">Attending?</label>
-              <div class="flex items-center gap-4 py-2.5">
-                <label class="flex items-center gap-2 text-xs font-cinzel text-stone-200 cursor-pointer">
-                  <input type="radio" name="attendance" value="Yes" checked class="accent-amber-400"> Joyfully Yes
-                </label>
-                <label class="flex items-center gap-2 text-xs font-cinzel text-stone-400 cursor-pointer">
-                  <input type="radio" name="attendance" value="Regretfully No" class="accent-amber-400"> In Spirit Only
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <label for="rsvp-message" class="block font-cinzel text-xs text-amber-300 uppercase tracking-wider mb-1.5">A Loving Wish / Message for Couple</label>
-            <textarea id="rsvp-message" rows="3" placeholder="Share your warm wishes and blessings..." class="w-full px-4 py-3 rounded-xl bg-black/50 border border-amber-500/30 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-amber-400 transition text-sm resize-none"></textarea>
-          </div>
-
-          <button type="submit" class="w-full py-3.5 rounded-full bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 text-royal-dark font-cinzel font-bold text-sm tracking-widest uppercase shadow-xl hover:brightness-110 transition transform active:scale-95">
-            Submit RSVP &amp; Blessings &rarr;
-          </button>
-        </form>
-      </div>
-
-      <!-- Live Wishes Guestbook Wall -->
-      <div class="lg:col-span-6 space-y-4" data-aos="fade-left">
-        <div class="flex items-center justify-between">
-          <h3 class="font-playfair text-2xl text-amber-200 font-semibold">Guestbook Blessings</h3>
-          <span class="text-xs font-cinzel text-amber-400"><i class="fa-solid fa-heart mr-1"></i> Real-time Wall</span>
-        </div>
-
-        <div id="guestbook-list" class="space-y-3 max-h-[460px] overflow-y-auto pr-2">
-          <!-- Filled dynamically by JavaScript -->
-        </div>
-
-        <!-- Quick Wish Input -->
-        <form id="wish-form" class="royal-glass p-4 rounded-2xl border border-amber-500/25 flex flex-col sm:flex-row gap-2 mt-4">
-          <input type="text" id="wish-name" placeholder="Your Name" required class="px-3 py-2 rounded-lg bg-black/40 border border-amber-500/30 text-xs text-stone-200 focus:outline-none focus:border-amber-400 flex-1">
-          <input type="text" id="wish-message" placeholder="Quick Blessing..." required class="px-3 py-2 rounded-lg bg-black/40 border border-amber-500/30 text-xs text-stone-200 focus:outline-none focus:border-amber-400 flex-2">
-          <button type="submit" class="px-4 py-2 rounded-lg bg-amber-500 text-royal-dark font-cinzel font-bold text-xs uppercase tracking-wider hover:bg-amber-400 transition whitespace-nowrap">
-            Send Wish
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       WHATSAPP SHARE BANNER
-       ========================================================================== -->
-  <section class="py-12 px-4 max-w-4xl mx-auto">
-    <div class="royal-glass p-8 rounded-3xl border border-amber-400/40 text-center shadow-2xl relative overflow-hidden" data-aos="zoom-in">
-      <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-emerald-600/30 border border-emerald-400/50 flex items-center justify-center text-emerald-400 text-2xl shadow-lg">
-        <i class="fa-brands fa-whatsapp"></i>
-      </div>
-      <h3 class="font-playfair text-2xl sm:text-3xl text-amber-200 font-semibold mb-2">
-        Share This Royal Invitation
-      </h3>
-      <p class="text-stone-300 text-xs sm:text-sm font-light max-w-lg mx-auto mb-6">
-        Share our wedding card with your loved ones, relatives, and friends on WhatsApp in one click.
-      </p>
-      <a id="whatsapp-share-btn" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-emerald-600 to-green-500 text-white font-cinzel font-bold text-sm tracking-wider uppercase shadow-xl hover:brightness-110 transition transform hover:-translate-y-0.5">
-        <i class="fa-brands fa-whatsapp text-lg"></i>
-        Share on WhatsApp
-      </a>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       ROYAL FOOTER
-       ========================================================================== -->
-  <footer class="py-16 px-4 bg-[#0a0205] border-t border-amber-500/20 text-center relative z-20">
-    <div class="max-w-4xl mx-auto space-y-6">
-      <!-- Monogram -->
-      <div class="w-16 h-16 mx-auto rounded-full border-2 border-amber-400/60 p-1 flex items-center justify-center bg-royal-wine text-amber-300 font-cinzel-dec font-bold text-xl shadow-lg">
-        H &amp; A
-      </div>
-
-      <h2 class="font-script text-4xl sm:text-6xl text-amber-200 gold-shimmer font-normal">
-        Himanshi &amp; Anshul
-      </h2>
-
-      <p class="font-cinzel text-xs tracking-[0.25em] uppercase text-stone-400">
-        24th November, 2026 • Jaipur, Rajasthan
-      </p>
-
-      <div class="w-32 h-px bg-gradient-to-r from-transparent via-amber-400/50 to-transparent mx-auto"></div>
-
-      <p class="font-playfair italic text-sm text-amber-100/70 max-w-md mx-auto">
-        "With best compliments from Sharma &amp; Verma Families, relatives, and friends."
-      </p>
-
-      <p class="text-[11px] font-cinzel text-stone-500 tracking-wider pt-4">
-        Handcrafted with &hearts; for Himanshi &amp; Anshul's Royal Wedding
-      </p>
-    </div>
-  </footer>
-
-  <!-- ==========================================================================
-       IMAGE LIGHTBOX MODAL
-       ========================================================================== -->
-  <div id="lightbox-modal" class="hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex-col items-center justify-center p-4">
-    <button id="lightbox-close" class="absolute top-6 right-6 w-12 h-12 rounded-full royal-glass border border-amber-400/60 text-amber-300 text-2xl flex items-center justify-center hover:bg-amber-400 hover:text-royal-dark transition z-50" aria-label="Close image viewer">
-      &times;
-    </button>
-
-    <div class="relative max-w-5xl max-h-[85vh] flex flex-col items-center">
-      <img id="lightbox-img" src="" alt="Wedding Photograph Preview" class="max-w-full max-h-[75vh] object-contain rounded-2xl border-2 border-amber-400/40 shadow-2xl">
-      <p id="lightbox-caption" class="font-cinzel text-amber-200 text-sm tracking-widest mt-4 text-center"></p>
-    </div>
   </div>
 
-  <!-- CDN Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
-  
-  <!-- Main Logic -->
+  <!-- Interactive Scripts -->
   <script src="script.js"></script>
 </body>
 </html>
