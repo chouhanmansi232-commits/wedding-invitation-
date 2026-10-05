@@ -5,56 +5,176 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- Primary Meta Tags -->
-  <title>Anshul &amp; Himanshi — The Wedding • 24 November 2026</title>
-  <meta name="title" content="Anshul & Himanshi — The Wedding • 24 November 2026">
-  <meta name="description" content="With the blessings of our families, we invite you to celebrate the beginning of our forever. 24 November 2026 • Jaipur, Rajasthan.">
+  <title>Himanshi &amp; Anshul — The Wedding • 24 November 2026</title>
+  <meta name="title" content="Himanshi &amp; Anshul — The Wedding • 24 November 2026">
+  <meta name="description" content="Together with their families, Himanshi &amp; Anshul invite you to celebrate their wedding. 24 November 2026 • Jaipur, Rajasthan.">
   <meta name="theme-color" content="#FAF7F2">
 
   <!-- Open Graph / WhatsApp Preview Meta Tags -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Anshul &amp; Himanshi — Wedding Invitation">
-  <meta property="og:description" content="A celebration of love, togetherness & forever. 24 November 2026 • Jaipur, Rajasthan.">
-  <meta property="og:image" content="assets/images/couple.jpg">
+  <meta property="og:title" content="Himanshi &amp; Anshul — Wedding Invitation">
+  <meta property="og:description" content="Together with their families, they invite you to celebrate their special day. 24 November 2026 • Jaipur, Rajasthan.">
+  <meta property="og:image" content="assets/images/couple_hero.jpg">
 
   <!-- Google Fonts: Cormorant Garamond, Cinzel, Montserrat, Alex Brush -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Custom Luxury Editorial Stylesheet -->
+  <!-- Luxury Editorial Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Floating Jasmine Petals & Champagne Dust Canvas -->
+  <!-- Floating Jasmine Petals & Champagne Gold Stardust Canvas -->
   <canvas id="ambient-canvas"></canvas>
 
   <!-- ==========================================================================
-       TOP BAR: MINIMAL MONOGRAM & DISCREET AUDIO
+       OPENING ANIMATION: 3D LUXURY WEDDING INVITATION ENVELOPE
+       ========================================================================== -->
+  <div id="envelope-overlay" class="envelope-overlay" aria-label="Interactive Wedding Invitation Envelope">
+    
+    <!-- Background Halo Glow -->
+    <div class="envelope-ambient-glow"></div>
+
+    <div class="envelope-center-container">
+      
+      <!-- Top Vedic Blessing -->
+      <p class="envelope-top-invocation">
+        ॥ श्री गणेशाय नमः ॥
+      </p>
+
+      <!-- The 3D Interactive Envelope -->
+      <div id="envelope-card-box" class="envelope-card-box" role="button" tabindex="0" aria-label="Tap to open wedding invitation envelope">
+        
+        <!-- Envelope Body Structure -->
+        <div class="envelope-wrapper">
+          
+          <!-- Back Wall of Envelope -->
+          <div class="envelope-back"></div>
+          
+          <!-- Ornate Inner Damask/Gold Lining -->
+          <div class="envelope-lining"></div>
+
+          <!-- The Inner Luxury Invitation Card (Slides Upward) -->
+          <div class="inner-invitation-card" id="inner-invitation-card">
+            <div class="card-inner-border">
+              <span class="card-monogram-tiny">H &amp; A</span>
+              <p class="card-vedic-sub">॥ श्री गणेशाय नमः ॥</p>
+              
+              <div class="card-names-block">
+                <span class="card-name-part">Himanshi</span>
+                <span class="card-amp">&amp;</span>
+                <span class="card-name-part">Anshul</span>
+              </div>
+
+              <div class="card-gold-line"></div>
+
+              <p class="card-invite-text">
+                Together with their families,<br>
+                they invite you to celebrate<br>
+                their special day.
+              </p>
+
+              <div class="card-date-caps">
+                24 NOVEMBER 2026
+              </div>
+
+              <p class="card-city-text">
+                Jaipur • Rajasthan
+              </p>
+
+              <button type="button" id="card-enter-btn" class="card-step-inside-btn" aria-label="Step inside full invitation">
+                <span>View Full Invitation</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M7 13l5 5 5-5M12 4v14"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Bottom & Side Envelope Pockets -->
+          <div class="envelope-pocket-left"></div>
+          <div class="envelope-pocket-right"></div>
+          <div class="envelope-pocket-bottom"></div>
+
+          <!-- Top Foldable Flap with 3D Wax Seal -->
+          <div class="envelope-top-flap" id="envelope-top-flap">
+            <div class="flap-triangle"></div>
+            
+            <!-- Embossed Gold Wax Seal -->
+            <div class="wax-seal" id="wax-seal" title="Click to break seal and open">
+              <div class="wax-seal-inner">
+                <svg class="seal-wreath" viewBox="0 0 48 48" fill="none">
+                  <path d="M12 28C10 23 11 17 15 13C17 11 20 9 24 9C28 9 31 11 33 13C37 17 38 23 36 28" stroke="currentColor" stroke-width="1" stroke-dasharray="2 1.5"/>
+                  <circle cx="24" cy="9" r="1.5" fill="currentColor"/>
+                </svg>
+                <span class="wax-initials">H&amp;A</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Interaction Cue / Guidance -->
+      <div class="envelope-action-cue" id="envelope-action-cue">
+        <span class="cue-touch-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M12 2a4 4 0 0 1 4 4v7a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/>
+            <path d="M6 10v3a6 6 0 0 0 12 0v-3"/>
+            <line x1="12" y1="19" x2="12" y2="22"/>
+          </svg>
+        </span>
+        <span class="cue-label">Tap Envelope to Open Invitation</span>
+      </div>
+
+      <!-- Discreet Direct Skip Link -->
+      <button type="button" id="skip-envelope-btn" class="skip-envelope-btn">
+        Enter Directly &rarr;
+      </button>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       TOP NAVIGATION & MONOGRAM BAR
        ========================================================================== -->
   <header class="top-bar">
-    <a href="#hero" class="monogram-badge" aria-label="Anshul and Himanshi Monogram">
+    <a href="#hero" class="monogram-badge" aria-label="Himanshi &amp; Anshul Monogram">
       <div class="monogram-circle">
-        <span class="monogram-text">A&amp;H</span>
+        <span class="monogram-text">H&amp;A</span>
       </div>
-      <span class="caps-detail" style="letter-spacing: 0.25em;">24 • 11 • 2026</span>
+      <span class="caps-detail top-bar-date">24 • 11 • 2026</span>
     </a>
 
-    <!-- Discreet Wedding Music Toggle -->
-    <button id="audio-toggle-btn" class="audio-toggle-btn" aria-label="Toggle Wedding Music">
-      <div class="sound-waves">
-        <span class="sound-bar"></span>
-        <span class="sound-bar"></span>
-        <span class="sound-bar"></span>
-      </div>
-      <span id="audio-label">Music</span>
-    </button>
+    <div class="top-bar-controls">
+      <!-- Re-open Envelope Button -->
+      <button id="reopen-envelope-btn" class="envelope-replay-btn" title="View Invitation Envelope" aria-label="Open Card Envelope Again">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        <span>Invitation Card</span>
+      </button>
+
+      <!-- Discreet Wedding Flute Music Toggle -->
+      <button id="audio-toggle-btn" class="audio-toggle-btn" aria-label="Toggle Wedding Music">
+        <div class="sound-waves">
+          <span class="sound-bar"></span>
+          <span class="sound-bar"></span>
+          <span class="sound-bar"></span>
+        </div>
+        <span id="audio-label">Music</span>
+      </button>
+    </div>
   </header>
 
   <div class="invitation-wrapper">
 
     <!-- ==========================================================================
-         1. OPENING / HERO SECTION
+         1. HERO / COUPLE SECTION
          ========================================================================== -->
     <section id="hero" class="hero-section">
       <!-- Auspicious Vedic Invocation -->
@@ -64,22 +184,27 @@
 
       <!-- Couple Names in Editorial Serif -->
       <div class="hero-names-group reveal-item delay-200">
-        <h1 class="hero-name">Anshul</h1>
+        <h1 class="hero-name">Himanshi</h1>
         <span class="hero-ampersand">&amp;</span>
-        <h2 class="hero-name">Himanshi</h2>
+        <h2 class="hero-name">Anshul</h2>
       </div>
 
-      <!-- Wedding Date Banner -->
-      <div class="hero-date-banner reveal-item delay-300">
-        <span class="hero-date-text">24 November 2026</span>
-      </div>
-
-      <!-- Editorial Subtitle Line -->
-      <p class="hero-tagline reveal-item delay-400">
-        A celebration of love, togetherness &amp; forever
+      <!-- Romantic Invitation Line -->
+      <p class="hero-invitation-line reveal-item delay-300">
+        Together with their families, they invite you to celebrate their special day.
       </p>
 
-      <!-- Centered Royal Arch Photo Composition (Uploaded Couple Photo) -->
+      <!-- Prominent Animated Wedding Date Banner -->
+      <div class="hero-date-banner reveal-item delay-400">
+        <div class="date-caps-row">
+          <span class="date-corner-diamond"></span>
+          <span class="hero-date-text">24 NOVEMBER 2026</span>
+          <span class="date-corner-diamond"></span>
+        </div>
+        <span class="date-sub-jaipur">Jaipur, Rajasthan</span>
+      </div>
+
+      <!-- Centered Royal Arch Photo Composition (Authentic Uploaded Couple Photo) -->
       <div class="hero-photo-container reveal-item delay-500">
         <!-- Delicate Corner Flourish SVGs -->
         <svg class="arch-corner-ornament arch-corner-bl" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -95,11 +220,11 @@
           <circle cx="38" cy="6" r="2" fill="currentColor"/>
         </svg>
 
-        <!-- Arched Frame for Couple Photo -->
+        <!-- Arched Frame for Real Couple Photo -->
         <div class="hero-photo-inner-frame">
           <img 
-            src="assets/images/couple.jpg" 
-            alt="Anshul and Himanshi Wedding Portrait" 
+            src="assets/images/couple_hero.jpg" 
+            alt="Himanshi and Anshul Wedding Portrait" 
             class="hero-couple-img parallax-img"
             loading="eager"
           />
@@ -125,13 +250,13 @@
     <section class="invitation-section">
       <div class="invitation-card reveal-item">
         <p class="invitation-pretext">
-          Joyfully Requesting Your Presence
+          Joyfully Requesting Your Presence &amp; Blessings
         </p>
 
         <p class="invitation-quote">
-          &ldquo;With the blessings of our families,<br>
-          we invite you to celebrate the beginning<br>
-          of our forever.&rdquo;
+          &ldquo;With the blessings of our elders and the grace of the Almighty,<br>
+          we invite you to celebrate the joyous union<br>
+          of two souls and two families.&rdquo;
         </p>
 
         <div class="invitation-date-highlight">
@@ -139,7 +264,7 @@
         </div>
 
         <p class="invitation-city">
-          Jaipur, Rajasthan
+          The Royal Heritage Palace • Jaipur, Rajasthan
         </p>
       </div>
     </section>
@@ -152,60 +277,222 @@
     </div>
 
     <!-- ==========================================================================
-         3. COUPLE PHOTO SECTION (EDITORIAL MAGAZINE COMPOSITION)
+         3. WEDDING FUNCTIONS (INDIVIDUAL LUXURY INVITATION CARDS)
          ========================================================================== -->
-    <section class="editorial-couple-section">
-      <div class="editorial-layout">
-        <!-- Layered Photo Composition -->
-        <div class="editorial-photo-wrapper reveal-item delay-100">
-          <div class="editorial-backdrop-frame"></div>
-          
-          <div class="editorial-photo-mat">
-            <div class="editorial-photo-inner">
-              <img 
-                src="assets/images/couple.jpg" 
-                alt="Editorial Portrait of Anshul and Himanshi" 
-                class="editorial-couple-img parallax-img"
-                loading="lazy"
-              />
+    <section id="functions" class="functions-section">
+      <div class="section-heading-box reveal-item">
+        <span class="caps-sub">Auspicious Celebrations</span>
+        <h2 class="title-medium">Wedding Functions</h2>
+        <p class="section-tagline">
+          Each sacred ceremony has been crafted with love and devotion. Join us in every beautiful chapter.
+        </p>
+      </div>
+
+      <div class="functions-stack">
+
+        <!-- FUNCTION 1: HALDI -->
+        <article class="function-card function-haldi reveal-item delay-100">
+          <div class="function-card-inner">
+            
+            <div class="function-photo-col">
+              <div class="function-photo-frame">
+                <img 
+                  src="assets/images/haldi_sangeet.jpg" 
+                  alt="Joyous Haldi &amp; Phoolon Ki Holi Ceremony" 
+                  class="function-img"
+                  loading="lazy"
+                />
+                <div class="function-photo-caption">Phoolon Ki Holi</div>
+              </div>
             </div>
+
+            <div class="function-details-col">
+              <div class="function-badge">
+                <span class="badge-dot"></span>
+                <span>Ritual &bull; Floral Bliss</span>
+              </div>
+
+              <h3 class="function-title">Haldi &amp; Phoolon Ki Holi</h3>
+
+              <div class="function-meta-grid">
+                <div class="meta-item">
+                  <span class="meta-label">Date</span>
+                  <span class="meta-value font-cinzel">Sunday, 22 November 2026</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Time</span>
+                  <span class="meta-value">10:00 AM Onwards</span>
+                </div>
+                <div class="meta-item full-width">
+                  <span class="meta-label">Venue</span>
+                  <span class="meta-value">The Palace Central Courtyard</span>
+                  <span class="meta-sub">The Royal Heritage Palace, Jaipur</span>
+                </div>
+                <div class="meta-item full-width">
+                  <span class="meta-label">Attire</span>
+                  <span class="meta-value-dress">Sunshine Yellow &amp; Floral Festive</span>
+                </div>
+              </div>
+
+              <p class="function-desc">
+                An auspicious morning filled with warm turmeric blessings, fragrant marigold showers, traditional dhol rhythms, and joyful laughter.
+              </p>
+            </div>
+
           </div>
+        </article>
 
-          <!-- Overlapping Translucent Badge -->
-          <div class="editorial-overlap-badge">
-            <div class="badge-names">Anshul &amp; Himanshi</div>
-            <div class="badge-sub">Jaipur • November 2026</div>
+        <!-- FUNCTION 2: MEHENDI & SANGEET -->
+        <article class="function-card function-mehendi reveal-item delay-200">
+          <div class="function-card-inner reverse-grid">
+            
+            <div class="function-photo-col">
+              <div class="function-photo-frame">
+                <img 
+                  src="assets/images/ring_ceremony.jpg" 
+                  alt="Mehendi &amp; Musical Sangeet Night" 
+                  class="function-img"
+                  loading="lazy"
+                />
+                <div class="function-photo-caption">Musical Celebration</div>
+              </div>
+            </div>
+
+            <div class="function-details-col">
+              <div class="function-badge">
+                <span class="badge-dot"></span>
+                <span>Rhythm &bull; Henna &amp; Music</span>
+              </div>
+
+              <h3 class="function-title">Mehendi &amp; Sangeet Night</h3>
+
+              <div class="function-meta-grid">
+                <div class="meta-item">
+                  <span class="meta-label">Date</span>
+                  <span class="meta-value font-cinzel">Monday, 23 November 2026</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Time</span>
+                  <span class="meta-value">6:30 PM Onwards</span>
+                </div>
+                <div class="meta-item full-width">
+                  <span class="meta-label">Venue</span>
+                  <span class="meta-value">The Grand Durbar Ballroom</span>
+                  <span class="meta-sub">The Royal Heritage Palace, Jaipur</span>
+                </div>
+                <div class="meta-item full-width">
+                  <span class="meta-label">Attire</span>
+                  <span class="meta-value-dress">Glamorous Indo-Western &amp; Pastels</span>
+                </div>
+              </div>
+
+              <p class="function-desc">
+                Intricate henna art, scintillating family dance performances, soulful melodies, and a starlit royal feast under the pink city sky.
+              </p>
+            </div>
+
           </div>
-        </div>
+        </article>
 
-        <!-- Editorial Typography & Poetic Story -->
-        <div class="editorial-content reveal-item delay-200">
-          <span class="editorial-tag">The Beginning</span>
-          
-          <h3 class="editorial-title">
-            The Journey of<br>Two Souls
-          </h3>
+        <!-- FUNCTION 3: THE WEDDING CEREMONY (PHERAS) -->
+        <article class="function-card function-wedding-main reveal-item delay-300">
+          <div class="function-card-inner">
+            
+            <div class="function-photo-col">
+              <div class="function-photo-frame royal-mandap-frame">
+                <img 
+                  src="assets/images/couple.jpg" 
+                  alt="Himanshi and Anshul Wedding Ceremony" 
+                  class="function-img"
+                  loading="lazy"
+                />
+                <div class="function-photo-caption">The Sacred Union</div>
+              </div>
+            </div>
 
-          <p class="editorial-quote">
-            &ldquo;In your eyes, I found my home.<br>
-            In your heart, I found my love.&rdquo;
-          </p>
+            <div class="function-details-col">
+              <div class="function-badge auspicious-badge">
+                <span class="badge-dot"></span>
+                <span>The Auspicious Day &bull; 24 Nov</span>
+              </div>
 
-          <ul class="editorial-details-list">
-            <li class="editorial-detail-item">
-              <span class="detail-bullet"></span>
-              <span>Coordinates: 26.9124° N, 75.7873° E</span>
-            </li>
-            <li class="editorial-detail-item">
-              <span class="detail-bullet"></span>
-              <span>Pink City • Royal Heritage</span>
-            </li>
-            <li class="editorial-detail-item">
-              <span class="detail-bullet"></span>
-              <span>An Eternal Promise</span>
-            </li>
-          </ul>
-        </div>
+              <h3 class="function-title">The Wedding Ceremony</h3>
+
+              <div class="function-meta-grid">
+                <div class="meta-item">
+                  <span class="meta-label">Date</span>
+                  <span class="meta-value font-cinzel gold-highlight">Tuesday, 24 November 2026</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Time</span>
+                  <span class="meta-value">6:00 PM Onwards</span>
+                </div>
+                <div class="meta-item full-width">
+                  <span class="meta-label">Venue</span>
+                  <span class="meta-value">The Royal Heritage Palace</span>
+                  <span class="meta-sub">Jaipur, Rajasthan, India</span>
+                </div>
+                <div class="meta-item full-width">
+                  <span class="meta-label">Attire</span>
+                  <span class="meta-value-dress">Royal Traditional Ethnic</span>
+                </div>
+              </div>
+
+              <div class="wedding-timeline-pills">
+                <div class="pill-item">
+                  <span class="pill-time">6:00 PM</span>
+                  <span class="pill-title">Baraat Swagat</span>
+                </div>
+                <div class="pill-arrow">&rarr;</div>
+                <div class="pill-item">
+                  <span class="pill-time">7:30 PM</span>
+                  <span class="pill-title">Royal Varmala</span>
+                </div>
+                <div class="pill-arrow">&rarr;</div>
+                <div class="pill-item">
+                  <span class="pill-time">9:00 PM</span>
+                  <span class="pill-title">Sacred Pheras</span>
+                </div>
+              </div>
+
+              <!-- Refined Discreet Venue Actions -->
+              <div class="wedding-card-actions">
+                <a 
+                  href="https://maps.google.com/?q=The+Royal+Heritage+Palace+Jaipur" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="btn-editorial-primary"
+                  aria-label="View Venue Location on Google Maps"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>View Location</span>
+                </a>
+
+                <a 
+                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Himanshi+%26+Anshul&dates=20261124T123000Z/20261124T183000Z&details=Together+with+their+families,+Himanshi+%26+Anshul+invite+you+to+celebrate+their+wedding.&location=The+Royal+Heritage+Palace,+Jaipur,+Rajasthan" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="btn-editorial-outline"
+                  aria-label="Add Wedding to Google Calendar"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  <span>Save The Date</span>
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+        </article>
+
       </div>
     </section>
 
@@ -222,68 +509,86 @@
     </div>
 
     <!-- ==========================================================================
-         4. WEDDING DAY SECTION
+         4. COUPLE PHOTO SECTION (EDITORIAL FINE-ART SPREAD)
          ========================================================================== -->
-    <section class="wedding-day-section">
-      <div class="event-card reveal-item">
-        <p class="event-header-label">Auspicious Ceremony</p>
+    <section class="editorial-couple-section">
+      <div class="section-heading-box reveal-item">
+        <span class="caps-sub">Portraits of Love</span>
+        <h2 class="title-medium">Himanshi &amp; Anshul</h2>
+        <p class="section-tagline">
+          Two individuals, one shared soul, embarking upon life&rsquo;s most sacred voyage.
+        </p>
+      </div>
+
+      <!-- Bride & Groom Individual Fine-Art Portraits -->
+      <div class="portraits-duo-grid reveal-item delay-100">
         
-        <h2 class="event-main-title">The Wedding</h2>
-
-        <!-- Event Date Highlights -->
-        <div class="event-date-row">
-          <div class="date-segment">
-            <span class="date-day-name">Tuesday</span>
-            <span class="date-number">24</span>
-          </div>
-
-          <div class="date-divider-vertical"></div>
-
-          <div class="date-segment">
-            <span class="date-month-year">November</span>
-            <span class="date-time">2026</span>
+        <!-- Bride Card -->
+        <div class="portrait-card">
+          <div class="portrait-mat">
+            <div class="portrait-inner">
+              <img 
+                src="assets/images/bride_himanshi.jpg" 
+                alt="Himanshi — The Bride" 
+                class="portrait-img parallax-img"
+                loading="lazy"
+              />
+            </div>
+            <div class="portrait-caption-box">
+              <span class="portrait-role">The Bride</span>
+              <h3 class="portrait-name">Himanshi</h3>
+              <p class="portrait-quote">&ldquo;Grace, radiance, and a heart full of dreams.&rdquo;</p>
+            </div>
           </div>
         </div>
 
-        <!-- Venue Block -->
-        <div class="venue-block">
-          <p class="caps-detail" style="margin-bottom: 0.5rem; color: var(--gold-dark);">Venue &amp; Reception</p>
-          <h3 class="venue-name">The Royal Heritage Palace</h3>
-          <p class="venue-location">Jaipur, Rajasthan, India</p>
-          <p class="venue-time-sub">Auspicious Ceremony at 6:00 PM</p>
+        <!-- Groom Card -->
+        <div class="portrait-card">
+          <div class="portrait-mat">
+            <div class="portrait-inner">
+              <img 
+                src="assets/images/groom_anshul.jpg" 
+                alt="Anshul — The Groom" 
+                class="portrait-img parallax-img"
+                loading="lazy"
+              />
+            </div>
+            <div class="portrait-caption-box">
+              <span class="portrait-role">The Groom</span>
+              <h3 class="portrait-name">Anshul</h3>
+              <p class="portrait-quote">&ldquo;Strength, warmth, and an everlasting devotion.&rdquo;</p>
+            </div>
+          </div>
         </div>
 
-        <!-- Action Links: View Location & Calendar -->
-        <div class="event-actions">
-          <a 
-            href="https://maps.google.com/?q=The+Royal+Heritage+Palace+Jaipur" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="btn-editorial-primary"
-            aria-label="View Venue Location on Google Maps"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
-            </svg>
-            <span>View Location</span>
-          </a>
+      </div>
 
-          <a 
-            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Anshul+%26+Himanshi&dates=20261124T123000Z/20261124T183000Z&details=With+the+blessings+of+our+families,+we+invite+you+to+celebrate+the+beginning+of+our+forever.&location=The+Royal+Heritage+Palace,+Jaipur,+Rajasthan" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="btn-editorial-outline"
-            aria-label="Add Wedding to Google Calendar"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-              <line x1="16" y1="2" x2="16" y2="6"></line>
-              <line x1="8" y1="2" x2="8" y2="6"></line>
-              <line x1="3" y1="10" x2="21" y2="10"></line>
-            </svg>
-            <span>Save The Date</span>
-          </a>
+      <!-- Centerpiece Editorial Story Spread -->
+      <div class="editorial-feature-card reveal-item delay-200">
+        <div class="editorial-feature-layout">
+          <div class="editorial-feature-photo">
+            <img 
+              src="assets/images/couple_hero.jpg" 
+              alt="Himanshi and Anshul Together" 
+              class="editorial-feature-img"
+              loading="lazy"
+            />
+          </div>
+          <div class="editorial-feature-text">
+            <span class="editorial-tag">The Eternal Bond</span>
+            <h3 class="editorial-feature-title">
+              Two Souls,<br>One Sacred Journey
+            </h3>
+            <p class="editorial-feature-quote">
+              &ldquo;In your eyes, I found my sanctuary.<br>
+              In your heart, I found my home.<br>
+              Together, our forever begins.&rdquo;
+            </p>
+            <div class="editorial-feature-signoff">
+              <span class="signoff-script">Himanshi &amp; Anshul</span>
+              <span class="signoff-sub">November 2026 &bull; Jaipur</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -296,7 +601,7 @@
     </div>
 
     <!-- ==========================================================================
-         5. SMALL PERSONAL DETAIL SECTION
+         5. POETIC BLESSING VERSE SECTION
          ========================================================================== -->
     <section class="personal-detail-section">
       <div class="detail-verse-box reveal-item">
@@ -325,37 +630,47 @@
     </div>
 
     <!-- ==========================================================================
-         6. FINAL SECTION (CLOSING)
+         6. FINAL SECTION (CLOSING INVITATION)
          ========================================================================== -->
     <footer class="closing-section">
       <div class="closing-card reveal-item">
+        
         <!-- Monogram Seal -->
         <div class="closing-seal">
-          <span class="closing-seal-text">A&amp;H</span>
+          <span class="closing-seal-text">H&amp;A</span>
         </div>
 
+        <p class="closing-highlight-quote">
+          &ldquo;We can't wait to celebrate with you.&rdquo;
+        </p>
+
+        <p class="closing-with-love">
+          With Love,
+        </p>
+
         <h3 class="closing-couple-names">
-          Anshul &amp; Himanshi
+          Himanshi &amp; Anshul
         </h3>
 
         <p class="closing-date">
-          24.11.2026
+          24 • NOVEMBER • 2026
         </p>
 
-        <p class="closing-message">
-          With love,<br>
-          we invite you to be part of our special day.
+        <p class="closing-venue-line">
+          The Royal Heritage Palace &bull; Jaipur, Rajasthan
         </p>
+
+        <div class="closing-divider-gold"></div>
 
         <p class="footer-credit">
-          ॥ शुभम भवतु ॥ • With the blessings of families
+          ॥ शुभम भवतु ॥ &bull; With the warmest blessings of Sharma &amp; Verma Families
         </p>
       </div>
     </footer>
 
   </div>
 
-  <!-- Interactive Scripts -->
+  <!-- Interactive Logic Engine -->
   <script src="script.js"></script>
 </body>
 </html>
